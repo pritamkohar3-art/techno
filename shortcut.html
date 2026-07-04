@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shortcut Keys Dashboard</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section id="services" class="services">
+    <h2>⌨ Shortcut Keys Dashboard</h2>
+
+
+        <!-- SEARCH -->
+    <div class="search-box">
+    <input type="text" id="search" placeholder="Search shortcut... (e.g. copy, save, ctrl)">
+    </div>
+
+
+    <!-- GRID -->
+    <div class="grid">
+
+        <!-- OFFICE -->
+        <div class="card">
+        <h3>MS Office</h3>
+        <div class="shortcut">
+           <p>Ctrl + N → New Document<br></p> 
+           <p>Ctrl + U → Underline<br></p>
+            <p>Ctrl + S → Save<br></p>
+            <p>Ctrl + P → Print<br></p>
+            <p>Ctrl + C → Copy<br></p>
+            <p>Ctrl + V → Paste<br></p>
+            <p>Ctrl + Z → Undo<br></p>
+            <p>Ctrl + B → Bold<br></p>
+            <p>Ctrl + I → Italic<br></p>
+            <p>Ctrl + F → Find</p>
+        </div>
+        </div>
+
+        <!-- WINDOWS -->
+        <div class="card">
+        <h3>Windows</h3>
+        <div class="shortcut">
+            <p>Win + D → Desktop<br></p>
+            <p>Win + E → File Explorer<br></p>
+            <p>Win + L → Lock PC<br></p>
+            <p>Alt + Tab → Switch Apps<br></p>
+            <p>Ctrl + Shift + Esc → Task Manager<br></p>
+            <p>Win + R → Run</p>
+        </div>
+        </div>
+
+        <!-- BROWSER -->
+        <div class="card">
+        <h2>Browser</h2>
+        <div class="shortcut">
+            <p>Ctrl + D → Bookmark</p>
+            <p>Ctrl + R → Refresh<br></p>
+            <p>Ctrl + T → New Tab<br></p>
+            <p>Ctrl + W → Close Tab<br></p>
+            <p>Ctrl + L → Address Bar<br></p>
+            <p>Ctrl + Shift + T → Reopen Tab<br></p>  
+        </div>
+        </div>
+
+        <!-- FILE -->
+        <div class="card">
+        <h3>File Explorer</h3>
+        <div class="shortcut">
+            <p>F5 → Refresh<br></p>
+            <p>F2 → Rename File<br></p>
+            <p>Ctrl + N → New Window<br></p>
+            <p>Alt + Enter → Properties</p>
+            <p>Ctrl + Shift + N → New Folder<br></p>   
+        </div>
+        </div>
+
+    </div>
+</section>
+<section id="about" class="about">
+  <p>
+    Shortcuts are designed to make computer use faster, easier, and more efficient.
+  </p>
+</section>
+<div class="back-home">
+<a href="dashboard.html" class="back-btn">
+<i class="fa-solid fa-arrow-left"></i> Back To Dashboard
+</a>
+</div>
+
+<div class="footer">
+<p>© TECHNOS COMPUTER | All Rights Reserved | Mayadevi-6, Betheri
+</p>
+</div>
+<script>
+// SEARCH FUNCTION
+document.getElementById("search").addEventListener("keyup", function() {
+    let value = this.value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        if (card.innerText.toLowerCase().includes(value)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+});
+
+// FILTER FUNCTION
+function filter(category) {
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        if (category === "all") {
+            card.style.display = "block";
+        } else {
+            card.style.display = card.classList.contains(category) ? "block" : "none";
+        }
+    });
+}
+</script>
+
+</body>
+</html>

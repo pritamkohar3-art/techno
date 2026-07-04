@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantipur Font Key Map</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="section-title">
+    
+    <h1>Kantipur Font Key Map</h1>
+    
+    <div class="controls">
+        <button id="toggleShift" class="toggle-btn">Show Shift Key Characters</button>
+    </div>
+
+    <div id="keyboardGrid" class="grid-container"></div>
+    <div class="back-home">
+        <a href="dashboard.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Back To Dashboard
+        </a>
+    </div>
+
+    <!-- <div class="footer">
+        <p>© 2026 TECHNOS COMPUTER | All Rights Reserved</p>
+    </div> -->
+</div>
+
+<script>
+    // Comprehensive key map mapped straight from the uploaded document image
+    const keyData = [
+        // Normal / Base Keys
+        { nepali: "क", eng: "s", isShift: false },
+        { nepali: "ख", eng: "v", isShift: false },
+        { nepali: "ग", eng: "u", isShift: false },
+        { nepali: "घ", eng: "3", isShift: false },
+        { nepali: "ङ", eng: "Alt+0170", isShift: false, isAlt: true },
+        { nepali: "च", eng: "r", isShift: false },
+        { nepali: "छ", eng: "5", isShift: false },
+        { nepali: "ज", eng: "h", isShift: false },
+        { nepali: "झ", eng: "e+m", isShift: false },
+        { nepali: "ञ", eng: "`", isShift: false },
+        { nepali: "ट", eng: "6", isShift: false },
+        { nepali: "ठ", eng: "7", isShift: false },
+        { nepali: "ड", eng: "8", isShift: false },
+        { nepali: "ढ", eng: "9", isShift: false },
+        { nepali: "ण", eng: "0+f", isShift: false },
+        { nepali: "त", eng: "t", isShift: false },
+        { nepali: "थ", eng: "y", isShift: false },
+        { nepali: "द", eng: "b", isShift: false },
+        { nepali: "ध", eng: "w", isShift: false },
+        { nepali: "न", eng: "g", isShift: false },
+        { nepali: "प", eng: "k", isShift: false },
+        { nepali: "फ", eng: "k+m", isShift: false },
+        { nepali: "ब", eng: "a", isShift: false },
+        { nepali: "भ", eng: "e", isShift: false },
+        { nepali: "म", eng: "d", isShift: false },
+        { nepali: "य", eng: "o", isShift: false },
+        { nepali: "र", eng: "/", isShift: false },
+        { nepali: "ल", eng: "n", isShift: false },
+        { nepali: "व", eng: "j", isShift: false },
+        { nepali: "श", eng: "z", isShift: false },
+        { nepali: "ष", eng: "i+f (Alt+0200)", isShift: false },
+        { nepali: "स", eng: ";", isShift: false },
+        { nepali: "ह", eng: "x", isShift: false },
+        { nepali: "क्ष", eng: "I+f", isShift: false },
+        { nepali: "त्र", eng: "q", isShift: false },
+        { nepali: "ज्ञ", eng: "1", isShift: false },
+
+        // Vowels & Modifiers
+        { nepali: "अ", eng: "c", isShift: false },
+        { nepali: "आ", eng: "cf", isShift: false },
+        { nepali: "इ", eng: "O", isShift: false },
+        { nepali: "ई", eng: "O{", isShift: false },
+        { nepali: "उ", eng: "p", isShift: false },
+        { nepali: "ऊ", eng: "pm", isShift: false },
+        { nepali: "ऋ", eng: "C", isShift: false },
+        { nepali: "ए", eng: "P", isShift: false },
+        { nepali: "ऐ", eng: "P]", isShift: false },
+        { nepali: "ओ", eng: "cf]", isShift: false },
+        { nepali: "औ", eng: "cf}", isShift: false },
+        { nepali: "अं", eng: "c+", isShift: false },
+        { nepali: "अः", eng: "cM", isShift: false },
+        
+        // Diacritics / Matras
+        { nepali: "ा", eng: "f", isShift: false },
+        { nepali: "ि", eng: "l", isShift: false },
+        { nepali: "ी", eng: "L", isShift: false },
+        { nepali: "े", eng: "'", isShift: false },
+        { nepali: "ै", eng: "\"", isShift: false },
+        { nepali: "ो", eng: "]", isShift: false },
+        { nepali: "ौ", eng: "}", isShift: false },
+        { nepali: "ं", eng: "=", isShift: false },
+        { nepali: "ः", eng: "M", isShift: false },
+
+        // --- SHIFT / ALT SPECIAL KEYS ---
+        { nepali: "इ्र", eng: "(ALT+0170)+\\", isShift: true, isAlt: true },
+        { nepali: "ऊ", eng: "R", isShift: true },
+        { nepali: "इ", eng: "H", isShift: true },
+        { nepali: "भ्र", eng: "Alt+0137", isShift: true, isAlt: true },
+        { nepali: "ङ्ग", eng: "~", isShift: true },
+        { nepali: "प", eng: "0", isShift: true },
+        { nepali: "ट", eng: "T", isShift: true },
+        { nepali: "ठ", eng: "Y", isShift: true },
+        { nepali: "ड", eng: "W", isShift: true },
+        { nepali: "ढ", eng: "G", isShift: true },
+        { nepali: "ण", eng: "K", isShift: true },
+        { nepali: "फ", eng: "Alt+0207", isShift: true, isAlt: true },
+        { nepali: "थ", eng: "A", isShift: true },
+        { nepali: "ध", eng: "E", isShift: true },
+        { nepali: "भ", eng: "&", isShift: true },
+        { nepali: "ट", eng: "Alt+0248", isShift: true, isAlt: true },
+        { nepali: "श्र", eng: "N", isShift: true },
+        { nepali: "ठ", eng: "J", isShift: true },
+        { nepali: "श", eng: "Z", isShift: true },
+        { nepali: "उ", eng: "i", isShift: true },
+        { nepali: "स", eng: ";", isShift: true },
+        { nepali: "क्ष", eng: "I", isShift: true },
+        { nepali: "ज्ञ", eng: "Alt+0161", isShift: true, isAlt: true },
+        { nepali: "ट्ट", eng: "Alt+0167", isShift: true, isAlt: true },
+        { nepali: "ट्ठ", eng: "Alt+0182", isShift: true, isAlt: true },
+        { nepali: "ड्ड", eng: "Alt+0176", isShift: true, isAlt: true },
+        { nepali: "ड्ढ", eng: "Alt+0149", isShift: true, isAlt: true },
+        { nepali: "क्र", eng: "Alt+0140", isShift: true, isAlt: true },
+        { nepali: "त", eng: "Q", isShift: true },
+        { nepali: "क्त", eng: "Qm", isShift: true },
+        { nepali: "द्र", eng: "Alt+0229", isShift: true, isAlt: true },
+        { nepali: "द्व", eng: "4", isShift: true },
+        { nepali: "द्ध", eng: "Alt+0162", isShift: true, isAlt: true },
+        { nepali: "दृ", eng: "b[", isShift: true },
+        { nepali: "ध्र", eng: "Alt+0132", isShift: true, isAlt: true },
+        { nepali: "द्य", eng: "B", isShift: true },
+        { nepali: "प्र", eng: "Alt+0204", isShift: true, isAlt: true },
+        { nepali: "फ्र", eng: "Alt+0207", isShift: true, isAlt: true },
+        { nepali: "य्र", eng: "Alt+0216", isShift: true, isAlt: true },
+        { nepali: "रू", eng: "?", isShift: true },
+        { nepali: "हृ", eng: "xl", isShift: true },
+        { nepali: "ह्र", eng: "2", isShift: true },
+        { nepali: "ह्व", eng: "Alt+0223", isShift: true, isAlt: true },
+        { nepali: "ॐ", eng: "Alt+0231", isShift: true, isAlt: true },
+        { nepali: "इ", eng: "Alt+0205", isShift: true, isAlt: true },
+        { nepali: "झ", eng: "Alt+0203", isShift: true, isAlt: true },
+        { nepali: "छ", eng: "Alt+0139", isShift: true, isAlt: true },
+        { nepali: "छ", eng: "Alt+0163", isShift: true, isAlt: true }
+    ];
+
+    const grid = document.getElementById('keyboardGrid');
+    const toggleBtn = document.getElementById('toggleShift');
+    let showShift = false;
+
+    function renderGrid() {
+        grid.innerHTML = '';
+        
+        // Filter keys based on the shift status toggle
+        const filteredData = keyData.filter(item => item.isShift === showShift);
+
+        filteredData.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'key-card';
+
+            const charSpan = document.createElement('span');
+            charSpan.className = 'nepali-char';
+            charSpan.textContent = item.nepali;
+
+            const keySpan = document.createElement('span');
+            // Check if it's a standard text key or a special Alt code formatting
+            keySpan.className = item.isAlt ? 'english-key alt-code' : 'english-key';
+            
+            // Append a small visual hint if shift is active and it's a normal letter key
+            if (showShift && !item.isAlt) {
+                keySpan.innerHTML = `<span class="shift-badge">Shift</span>${item.eng}`;
+            } else {
+                keySpan.textContent = item.eng;
+            }
+
+            card.appendChild(charSpan);
+            card.appendChild(keySpan);
+            grid.appendChild(card);
+        });
+    }
+
+    // Toggle button click event logic
+    toggleBtn.addEventListener('click', () => {
+        showShift = !showShift;
+        toggleBtn.classList.toggle('active', showShift);
+        toggleBtn.textContent = showShift ? "Show Base Characters" : "Show Shift Key Characters";
+        renderGrid();
+    });
+
+    // Initial load
+    renderGrid();
+</script>
+
+</body>
+</html>

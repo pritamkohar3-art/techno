@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Typing Exam System</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<div class="section-title">
+    <h1>⌨️ Typing Exam System </h1>
+    <p>Practice • Improve • Master Typing</p>
+</div>
+
+<!-- MAIN CARD -->
+<div class="glass-card">
+
+<!-- LEVEL CONTROLS -->
+<div class="controls">
+
+<select id="level" onchange="generateText()">
+<option value="beginner">Beginner</option>
+<option value="advanced">Advanced</option>
+</select>
+
+<select id="sublevel" onchange="generateText()">
+<option value="1">Level 1</option>
+<option value="2">Level 2</option>
+<option value="3">Level 3</option>
+<option value="4">Level 4</option>
+<option value="5">Level 5</option>
+<option value="6">Level 6</option>
+</select>
+
+<select id="mode">
+<option value="30">30 Sec</option>
+<option value="60">60 Sec</option>
+<option value="120">120 Sec</option>
+</select>
+<div class="practice-links">
+
+    <h3>Practice on More Typing Websites</h3>
+
+    <div class="links">
+
+        <a href="https://monkeytype.com/"
+           target="_blank"
+           class="site-btn monkey">
+            <i class="fa-solid fa-keyboard"></i>
+            Monkeytype
+        </a>
+
+        <a href="https://www.typing.com/"
+           target="_blank"
+           class="site-btn typing">
+            <i class="fa-solid fa-laptop-code"></i>
+            Typing.com
+        </a>
+
+    </div>
+
+</div>
+</div>
+
+<!-- BUTTONS -->
+
+<!-- TEXT -->
+<div id="text" class="text-box"></div>
+
+<!-- INPUT -->
+<input id="input" disabled placeholder="Start typing...">
+<div class="extra-links">
+<button onclick="start()"><i class="fa fa-play"></i> Start</button>
+</div>
+</div>
+<!-- BACK -->
+<div class="back-home">
+<a href="dashboard.html" class="back-btn">
+<i class="fa-solid fa-arrow-left"></i> Back To Dashboard
+</a>
+</div>
+<script>
+
+/* =========================
+   LEVEL DATA
+========================= */
+
+const beginnerLevels = {
+1:["a","b","c","d","e","f","g","h","i","j"],
+2:["cat","dog","pen","book","home","school","apple","mouse"],
+3:["1","2","3","4","5","6","7","8","9","0"],
+4:["I am student.","I love typing.","Practice daily.","Learn fast."],
+5:["A B C D E","Hello World!","Good Morning","Typing Is Fun"],
+6:["cat runs 123","A B C test","keyboard 1 2 3","mix practice"]
+};
+
+/* ✅ YOUR ADVANCED LEVELS */
+const advancedLevels = {
+1:[
+"Kids came in laughing and talking in little groups but I didn’t look up. Basically, the same thing that happened in homeroom happened again: no one sat next to me except for Jack, who was joking around with some kids who weren’t in our homeroom. I could tell Jack was the kind of kid other kids like. He had a lot of friends. He made people laugh."
+],
+2:[
+"When the second bell rang, everyone got quiet and the teacher turned around and faced us. He said his name was Mr. Browne, and then he started talking about what we would be doing this semester. At a certain point, somewhere between A Wrinkle in Time and Shen of the Sea, he noticed me but kept right on talking."
+],
+3:[
+"Okay, so, everybody, he said, facing us again, I want you to start a brand-new section in your notebooks and call it Mr. Browne’s Precepts. He kept talking as we did what he was telling us to do."
+],
+4:[
+"Put today’s date at the top of the first page. And from now on, at the beginning of every month, I’m going to write a new Mr. Browne precept on the chalkboard and you’re going to write it down in your notebook. Then we’re going to discuss that precept and what it means. And at the end of the month, you’re going to write an essay about it, about what it means to you. So by the end of the year, you’ll all have your own list of precepts to take away with you."
+],
+5:[
+"Put today’s date at the top of the first page. And from now on, at the beginning of every month, I’m going to write a new Mr. Browne precept on the chalkboard and you’re going to write it down in your notebook. Then we’re going to discuss that precept and what it means. And at the end of the month, you’re going to write an essay about it, about what it means to you. So by the end of the year, you’ll all have your own list of precepts to take away with you."
+],
+6:[
+"Historically, in most cultures, the family was patriarchal, or male-dominated. Perhaps the most striking example of the male-dominated family is the description of the family given in the Hebrew Bible (or Old Testament), where the male heads of the clans were allowed to have several wives as well as concubines. As a general rule, women had a rather low status. In Roman times the family was still patriarchal, but polygamy was not practiced, and in general the status of women was somewhat improved over that suggested in the Hebrew Bible, although they still were not allowed to manage their own affairs. The Roman family was an extended one. The family as it existed in medieval Europe was male-dominated and extended."
+]
+};
+
+/* =========================
+   VARIABLES
+========================= */
+
+let time = 0;
+let timer = null;
+let started = false;
+let limit = 30;
+let currentText = "";
+
+/* =========================
+   GENERATE TEXT
+========================= */
+
+function generateText(){
+
+let type = document.getElementById("level").value;
+let level = parseInt(document.getElementById("sublevel").value);
+
+let bank = (type==="beginner") ? beginnerLevels[level] : advancedLevels[level];
+
+let words = [];
+
+for(let i=0;i<25;i++){
+words.push(bank[Math.floor(Math.random()*bank.length)]);
+}
+
+currentText = words.join(" ");
+document.getElementById("text").innerText = currentText;
+
+}
+
+generateText();
+
+/* =========================
+   START TEST
+========================= */
+
+function start(){
+
+if(started) return;
+
+limit = parseInt(document.getElementById("mode").value);
+
+started = true;
+time = 0;
+
+document.getElementById("input").disabled = false;
+document.getElementById("input").focus();
+
+timer = setInterval(()=>{
+
+time++;
+document.getElementById("time").innerText = time;
+
+if(time >= limit){
+finishTest();
+}
+
+},1000);
+
+}
+
+/* =========================
+   FINISH TEST
+========================= */
+
+function finishTest(){
+
+clearInterval(timer);
+started = false;
+
+document.getElementById("input").disabled = true;
+
+let typed = document.getElementById("input").value;
+
+let wordsTyped = typed.trim().split(/\s+/).filter(Boolean).length;
+let wpm = Math.round((wordsTyped/limit)*60);
+
+let correct = 0;
+let minLen = Math.min(typed.length,currentText.length);
+
+for(let i=0;i<minLen;i++){
+if(typed[i]===currentText[i]) correct++;
+}
+
+let acc = currentText.length
+?Math.round((correct/currentText.length)*100)
+:0;
+
+document.getElementById("result").innerHTML =
+`🏁 Test Finished<br>📊 WPM: ${wpm}<br>🎯 Accuracy: ${acc}%`;
+
+}
+
+/* =========================
+   RESET
+========================= */
+
+function reset(){
+
+clearInterval(timer);
+
+time=0;
+started=false;
+
+document.getElementById("input").value="";
+document.getElementById("input").disabled=true;
+
+document.getElementById("time").innerText=0;
+document.getElementById("wpm").innerText=0;
+document.getElementById("acc").innerText=0;
+document.getElementById("result").innerHTML="";
+
+generateText();
+
+}
+
+/* =========================
+   LIVE STATS
+========================= */
+
+document.getElementById("input").addEventListener("input",function(){
+
+let typed=this.value;
+
+let wordsTyped = typed.trim().split(/\s+/).filter(Boolean).length;
+let wpm = time>0?Math.round((wordsTyped/time)*60):0;
+
+document.getElementById("wpm").innerText=wpm;
+
+let correct=0;
+let minLen=Math.min(typed.length,currentText.length);
+
+for(let i=0;i<minLen;i++){
+if(typed[i]===currentText[i]) correct++;
+}
+
+let acc=currentText.length?
+Math.round((correct/currentText.length)*100):0;
+
+document.getElementById("acc").innerText=acc;
+
+});
+
+</script>
+
+</body>
+</html>

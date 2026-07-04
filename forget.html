@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Forgot Password - TECHNOS COMPUTER</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- BACKGROUND IMAGE -->
+<div class="bg-image"></div>
+<div class="login-wrapper">
+
+    <div class="login-card">
+
+        <div class="image-box">
+    <img class="profile-img"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScCvAq87Uwh9_QSjdf2ID5yZMIC7rRjth-aQ&s"
+    alt="Profile Image">
+    <!-- <div class="online-dot"></div> -->
+
+        <h1>Forgot Password</h1>
+        <p class="subtitle">Enter your email to reset password</p>
+
+        <form id="forgotForm">
+
+            <div class="input-box">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="email" placeholder="Enter Email" required>
+            </div>
+          
+            <button class="btn" type="submit">Reset Password</button>
+
+            <p id="msg"></p>
+
+        </form>
+
+       <div class="extra-links">
+            <a href="login.html">
+                <i class="fa-solid fa-arrow-left"></i>
+                ⬅ Back to Login
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const form = document.getElementById("forgotForm");
+const msg = document.getElementById("msg");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+
+    // simple demo validation
+    if(email.includes("@") && email.includes(".")){
+
+        msg.style.color = "#00ff99";
+        msg.textContent = "Reset link sent to your email (demo)";
+
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 2000);
+
+    } else {
+        msg.style.color = "#ff4d4d";
+        msg.textContent = "Please enter valid email";
+    }
+});
+</script>
+
+</body>
+</html>

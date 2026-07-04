@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TECHNOS COMPUTER AI LOGIN</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- BACKGROUND IMAGE -->
+<div class="bg-image"></div>
+
+<!-- LOGIN BOX -->
+<div class="login-wrapper">
+<div class="login-card">
+
+<div class="image-box">
+    <img class="profile-img"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScCvAq87Uwh9_QSjdf2ID5yZMIC7rRjth-aQ&s"alt="Profile Image">
+    <div class="online-dot"></div>
+</div>
+
+<h1>TECHNOS COMPUTER</h1>
+<p class="subtitle">AI Powered Smart Login System</p>
+
+<!-- FORM -->
+<form id="loginForm">
+
+<div class="input-box">
+<i class="fa-solid fa-user icon"></i>
+<input type="text" id="username" placeholder="Enter Username" required></div>
+
+<div class="input-box">
+<i class="fa-solid fa-lock icon"></i>
+<input type="password" id="password" placeholder="Enter Password" required></div>
+
+<button type="submit" class="btn">
+<i class="fa-solid fa-right-to-bracket"></i> Login Now</button>
+
+<button type="button" class="google-btn">
+<i class="fa-brands fa-google"></i> Continue with Google</button>
+<p id="msg"></p>
+</form>
+
+<div class="extra-links">
+<a href="forget.html">Forgot Password</a>
+<a href="signup.html">Create Account</a></div>
+</div>
+</div>
+
+<!-- ================= POPUP HTML ================= -->
+<div class="popup-overlay" id="popup">
+    <div class="popup-box">
+        <div class="popup-icon">
+        <i class="fa-solid fa-circle-check"></i>
+        <h2>Congratulations!</h2>
+        <p>Login Successful 🎉</p>
+        </div>
+    </div>
+</div>
+
+<script>
+// LOGIN SYSTEM
+// ================= LOGIN =================
+const form = document.getElementById("loginForm");
+const msg = document.getElementById("msg");
+const popup = document.getElementById("popup");
+
+form.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    const user = document.getElementById("username").value.trim();
+    const pass = document.getElementById("password").value.trim();
+
+    msg.style.color = "#00ffff";
+    msg.textContent = "Verifying...";
+
+    setTimeout(function () {
+
+        if (user === "admin" && pass === "1234") {
+
+            msg.style.color = "lime";
+            msg.textContent = "Login Successful";
+
+            popup.style.display = "flex";
+
+            setTimeout(function () {
+                window.location.href = "dashboard.html";
+            }, 2000);
+
+        } else {
+
+            msg.style.color = "red";
+            msg.textContent = "Wrong Username or Password";
+
+        }
+
+    }, 1200);
+
+});
+// ================= PASSWORD TOGGLE =================
+const toggle = document.getElementById("togglePassword");
+const password = document.getElementById("password");
+
+if (toggle) {
+
+    toggle.addEventListener("click", function () {
+
+        if (password.type === "password") {
+
+            password.type = "text";
+            toggle.classList.remove("fa-eye");
+            toggle.classList.add("fa-eye-slash");
+
+        } else {
+
+            password.type = "password";
+            toggle.classList.remove("fa-eye-slash");
+            toggle.classList.add("fa-eye");
+
+        }
+
+    });
+
+}
+// ================= TYPING EFFECT =================
+const subtitle = document.querySelector(".subtitle");
+const text = subtitle.textContent;
+subtitle.textContent = "";
+let index = 0;
+function typeWriter() {
+    if (index < text.length) {
+        subtitle.textContent += text.charAt(index);
+        index++;
+
+        setTimeout(typeWriter, 100);
+    }
+}
+typeWriter();
+</script>
+</body>
+</html>

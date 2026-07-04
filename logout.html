@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - TECHNOS COMPUTER</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="logout-page">
+
+<!-- LOGOUT BOX -->
+<div class="login-wrapper">
+    <div class="login-card">
+        <div class="image-box">
+            <img class="profile-img"
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScCvAq87Uwh9_QSjdf2ID5yZMIC7rRjth-aQ&s"
+                 alt="Profile Image">
+        </div>
+
+        <h1>You Have Logged Out</h1>
+        <p class="subtitle">Thank you for visiting TECHNOS COMPUTER. Your session has been ended successfully.</p>
+
+        <div class="button-group">
+            <a href="login.html" class="babu">
+                <i class="fa-solid fa-sign-in-alt"></i> Login Again
+            </a>
+            <button class="exit-btn" onclick="exitPage()">
+                <i class="fa-solid fa-times"></i> Exit
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Clear user session on logout
+    document.addEventListener("DOMContentLoaded", () => {
+
+    /* =========================
+       CLEAR USER SESSION
+    ========================= */
+
+    function clearUserSession() {
+
+        sessionStorage.clear();
+
+        const keys = [
+            "userLoggedIn",
+            "userId",
+            "userName",
+            "userEmail",
+            "userRole"
+        ];
+
+        keys.forEach(key => localStorage.removeItem(key));
+
+    }
+
+    clearUserSession();
+
+    /* =========================
+       EXIT PAGE
+    ========================= */
+
+    window.exitPage = () => {
+
+        const exitBtn = document.querySelector(".exit-btn");
+
+        exitBtn.disabled = true;
+
+        exitBtn.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin"></i> Closing...';
+
+        setTimeout(() => {
+
+            try {
+
+                window.open("", "_self");
+
+                window.close();
+
+            } catch (e) {
+
+                console.log(e);
+
+            }
+
+            window.location.replace("about:blank");
+
+        },800);
+
+    };
+
+    /* =========================
+       ESC KEY
+    ========================= */
+
+    document.addEventListener("keydown", e => {
+
+        if (e.key === "Escape") {
+
+            exitPage();
+
+        }
+
+    });
+
+});
+</script>
+
+</body>
+</html>

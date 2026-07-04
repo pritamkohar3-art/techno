@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technos Computer - Build Your IT Career</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+    <div class="logo">
+     <img src="data:image/jpeg;base64,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">
+            TECHNOS <span>COMPUTER</span>
+        </div>
+
+        <ul class="menu" id="menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="service.html">Courses</a></li>
+            <li><a href="sales.html">Sales</a></li>
+            <li><a href="repairing.html">Repair</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="lalu" id="home">
+
+    <div class="kalu"></div>
+
+    <div class="palu">
+
+        <span class="talu">
+            <i class="fa-solid fa-laptop-code"></i>
+            Welcome To Technos Computer
+        </span>
+
+        <h1>
+            Build Your <span>IT Career</span><br>
+            with Real Skills
+        </h1>
+
+        <p>
+            Learn. Repair. Get Certified. Get Placed.
+            Industry-focused IT training with experienced instructors,
+            practical learning and 100% placement support.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="service.html" class="btn-primary">
+                Visit Learning
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="sales.html" class="btn-secondary">
+                Visit Sales
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section-title">
+
+    <!-- <div class="section"> -->
+        <h1>Our Programs</h1>
+        <!-- <p>Choose from our wide range of industry-oriented courses.</p> -->
+    <!-- </div> -->
+
+    <div class="service-grid">
+
+        <div class="card">
+            <div class="card-icon">
+                <i class="fa-solid fa-desktop"></i>
+            </div>
+            <h3>Computer Courses</h3>
+            <p>Basic Computer, MS Office, Tally, DTP, Internet, Typing, Photoshop, Programming and more.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h3>Study in India</h3>
+            <p>Complete admission guidance for Diploma, Bachelor's, Master's and professional courses in India.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3>Share Market Training</h3>
+            <p>Learn stock market basics, technical analysis, trading strategies and investment management.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">
+                <i class="fa-solid fa-book-open-reader"></i>
+            </div>
+            <h3>SEE &amp; +2 Tuition Class</h3>
+            <p>Expert coaching for SEE and +2 students with experienced teachers and regular assessments.</p>
+        </div>
+        
+    </div>
+
+</section>
+
+    <!-- ================= SERVICES SECTION ================= -->
+
+<section class="section-title">
+
+    <!-- <div class="section"> -->
+        <h1>Our Professional Services</h1>
+        <!-- <p>Fast, Reliable & Affordable Computer Solutions</p> -->
+    <!-- </div> -->
+
+    <div class="service-grid">
+
+        <!-- Service 1 -->
+        <div class="card">
+            <!-- <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45?auto=format&fit=crop&w=800&q=80" alt="Online Payment"> -->
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fa-solid fa-credit-card"></i>
+                </div>
+                <h3>Online Payment</h3>
+                <p>Electricity Bill, Internet, Mobile Recharge, Insurance, Government Fees and Digital Payment Services.</p>
+
+            </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="card">
+            <!-- <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Online Form"> -->
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fa-solid fa-file-signature"></i>
+                </div>
+
+                <h3>Online Form Fulfillment</h3>
+
+                <p>Government Forms, Passport, License, Exam Registration, PAN, Scholarship and Online Applications.</p>
+            </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="card">
+            <!-- <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Repair"> -->
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fa-solid fa-laptop-medical"></i>
+                </div>
+
+                <h3>Laptop & Desktop Repair</h3>
+
+                <p>Motherboard Repair, Screen Replacement, Keyboard, SSD Upgrade, RAM Upgrade and Complete Maintenance.</p>
+            </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="card">
+            <!-- <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Virus Removal"> -->
+            <div class="service-content">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-shield-virus"></i>
+                </div>
+
+                <h3>Virus Removal & Data Recovery</h3>
+
+                <p>Professional Virus Cleaning, Malware Removal, Data Backup and Lost Data Recovery Services.</p>
+            </div>
+        </div>
+  </section>
+      <div class="service-grid">
+        <!-- Service 5 -->  
+        <div class="card">
+
+            <!-- <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=800&q=80" alt="Software"> -->
+
+            <div class="service-content">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-download"></i>
+                </div>
+
+                <h3>Software Installation & Updates</h3>
+
+                <p>Windows Installation, Microsoft Office, Antivirus, Drivers, Graphic Software and System Optimization.</p>
+            </div>
+
+        </div>
+
+        <!-- Service 6 -->
+        <div class="card">
+
+            <!-- <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=800&q=80" alt="Networking"> -->
+
+            <div class="service-content">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-wifi"></i>
+                </div>
+
+                <h3>Networking & Wi-Fi Setup</h3>
+
+                <p>Office Networking, Router Setup, Wi-Fi Optimization, LAN Configuration and Internet Troubleshooting.</p>
+
+            </div>
+
+        </div>
+
+        <!-- Service 7 -->
+        <div class="card">
+
+            <!-- <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80" alt="CCTV"> -->
+
+            <div class="service-content">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-video"></i>
+                </div>
+
+                <h3>CCTV Installation</h3>
+
+                <p>Home & Office CCTV Camera Installation, DVR Setup, Remote Monitoring and Security Solutions.</p>
+
+            </div>
+
+        </div>
+
+        <!-- Service 8 -->
+        <div class="card">
+
+            <!-- <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Support"> -->
+
+            <div class="service-content">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <h3>Technical Support</h3>
+
+                <p>Remote Assistance, Office IT Support, Annual Maintenance, Hardware Troubleshooting and Consultation.</p>
+            </div>
+            
+        </div>
+
+    </div>
+    </div>
+
+<!-- ================= SALES SECTION ================= -->
+
+<section class="section-title">
+
+    <!-- <div class="section"> -->
+        <h1>Sales Products</h1>
+        <!-- <p>High Quality Computer Products at Affordable Prices</p>
+    </div> -->
+
+    <div class="service-grid">
+
+        <!-- Computer -->
+        <div class="card">
+            <!-- <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700" alt="Computer"> -->
+            <div class="service-content">
+                <h3>Computer</h3>
+                <p>Gaming, Office and Business Computers with Warranty.</p>
+            </div>
+        </div>
+
+        <!-- Laptop -->
+        <div class="card">
+            <!-- <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=700" alt="Laptop"> -->
+            <div class="service-content">
+                <h3>Laptop</h3>
+                <p>HP, Dell, Lenovo, Acer, Asus and Apple Laptops Available.</p>
+            </div>
+        </div>
+
+        <!-- Printer -->
+        <div class="card">
+            <!-- <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=700" alt="Printer"> -->
+            <div class="sales-content">
+                <h3>Printer</h3>
+                <p>Canon, Epson, HP Inkjet & Laser Printers for Home and Office.</p>
+            </div>
+        </div>
+
+        <!-- CCTV -->
+        <div class="card">
+            <!-- <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=700" alt="CCTV"> -->
+            <div class="sales-content">
+                <h3>CCTV Camera</h3>
+                <p>HD, Full HD and IP Security Camera Systems with Installation.</p>
+            </div>
+        </div>
+
+        <!-- Networking -->
+        <div class="card">
+            <!-- <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700" alt="Networking"> -->
+            <div class="sales-content">
+                <h3>Networking Products</h3>
+                <p>Routers, Switches, LAN Cable, Connectors and Networking Accessories.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="verification-section" id="verify">
+        <div class="title">
+            <h2>Verify Certificate</h2>
+            <p>Verify the authenticity of your certificate issued by Technos Computer</p>
+        </div>
+        <div class="verify-box">
+            <form id="verifyForm">
+                <div class="form-group">
+                    <label for="certId">Enter Certificate ID</label>
+                    <input type="text" id="certId" class="form-control" placeholder="e.g., TC-2026-X789" required>
+                </div>
+                <button type="submit" class="btn-verify">Verify Now</button>
+            </form>
+            <div id="verifyResult" class="verify-result"></div>
+        </div>
+</section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Technos Computer</h4>
+                <p>Providing premium quality technical education and professional repair solutions.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="services.html">Courses</a></li>
+                    <li><a href="sales.html">Sales</a></li>
+                    <li><a href="repairing.html">Repairing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p><i class="fa-solid fa-envelope"></i> ✉ technoscomputerbth@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> +977 9841234567</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; 2026 Technos Computer Center. All Rights Reserved.</p>
+        </div>
+</footer>
+
+<script>const students = {
+
+    "TC-2026-X789": {
+        photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80",
+        name: "Aashish Sharma",
+        course: "Advanced Diploma in Computer Application",
+        dob: "14 Jan 2002",
+        father: "Ramesh Sharma",
+        mother: "Sita Sharma",
+        address: "Kathmandu, Nepal",
+        issueDate: "12 Jan 2026",
+        grade: "A"
+    },
+
+    "TC-2026-A123": {
+        photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+        name: "Nabin Thapa",
+        course: "Web Development & Design",
+        dob: "03 Aug 2001",
+        father: "Kamal Thapa",
+        mother: "Mina Thapa",
+        address: "Pokhara, Nepal",
+        issueDate: "20 Feb 2026",
+        grade: "A+"
+    }
+
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const verifyForm = document.getElementById("verifyForm");
+    const result = document.getElementById("verifyResult");
+    const certInput = document.getElementById("certId");
+
+    if (!verifyForm || !result || !certInput) return;
+
+    verifyForm.addEventListener("submit", (e) => {
+
+        e.preventDefault();
+
+        const certId = certInput.value.trim().toUpperCase();
+
+        result.style.display = "block";
+
+        if (!certId) {
+
+            result.innerHTML = `
+                <div class="invalid">
+                    <h3>⚠ Please enter a Certificate ID</h3>
+                </div>
+            `;
+
+            certInput.focus();
+
+            return;
+
+        }
+
+        result.innerHTML = `
+            <div class="loading">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                Verifying Certificate...
+            </div>
+        `;
+
+        setTimeout(() => {
+
+            try {
+
+                const student = students[certId];
+
+                if (student) {
+
+                    result.innerHTML = `
+                        <div class="student-card">
+
+                            <img src="${student.photo}" alt="${student.name}">
+
+                            <div class="student-info">
+
+                                <h3>
+                                <i class="fa-solid fa-circle-check valid"></i>
+                                Certificate Verified
+                                </h3>
+
+                                <table>
+
+                                    <tr><td>Certificate ID</td><td>${certId}</td></tr>
+                                    <tr><td>Name</td><td>${student.name}</td></tr>
+                                    <tr><td>Course</td><td>${student.course}</td></tr>
+                                    <tr><td>DOB</td><td>${student.dob}</td></tr>
+                                    <tr><td>Father</td><td>${student.father}</td></tr>
+                                    <tr><td>Mother</td><td>${student.mother}</td></tr>
+                                    <tr><td>Address</td><td>${student.address}</td></tr>
+                                    <tr><td>Issue Date</td><td>${student.issueDate}</td></tr>
+                                    <tr><td>Grade</td><td>${student.grade}</td></tr>
+                                    <tr><td>Status</td><td class="valid">✔ Valid Certificate</td></tr>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+                    `;
+
+                } else {
+
+                    result.innerHTML = `
+                        <div class="invalid">
+
+                            <h3>
+                            <i class="fa-solid fa-circle-xmark"></i>
+                            Certificate Not Found
+                            </h3>
+
+                            <p>
+                            No record exists for
+                            <strong>${certId}</strong>.
+                            </p>
+
+                        </div>
+                    `;
+
+                }
+
+            } catch (error) {
+
+                console.error(error);
+
+                result.innerHTML = `
+                    <div class="invalid">
+                        Something went wrong.
+                    </div>
+                `;
+
+            }
+
+        }, 1000);
+
+    });
+
+});
+</script>
+</body>
+</html>

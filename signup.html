@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sign Up - TECHNOS COMPUTER</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+<div class="bg-image"></div>
+<div class="login-wrapper">
+
+    <div class="login-card">
+
+        <div class="image-box">
+    <img class="profile-img"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScCvAq87Uwh9_QSjdf2ID5yZMIC7rRjth-aQ&s"
+    alt="Profile Image">
+    <div class="online-dot"></div>
+</div>
+        <h1>Create Account</h1>
+        <p class="subtitle">Join TECHNOS COMPUTER AI System</p>
+
+        <!-- FORM -->
+        <form id="signupForm">
+
+            <div class="input-box">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="fullname" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="password" placeholder="Create Password" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-shield-halved"></i>
+                <input type="password" id="confirm" placeholder="Confirm Password" required>
+            </div>
+
+            <button class="btn" type="submit">
+                <i class="fa-solid fa-user-plus"></i>
+                Create Account
+            </button>
+
+            <p id="msg"></p>
+
+        </form>
+
+        <!-- LINKS -->
+        <div class="extra-links">
+            <a href="login.html">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Login
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+
+const form = document.getElementById("signupForm");
+const msg = document.getElementById("msg");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name =
+    document.getElementById("fullname").value;
+
+    const email =
+    document.getElementById("email").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    const confirm =
+    document.getElementById("confirm").value;
+
+    // basic validation
+    if(!name || !email || !password || !confirm){
+        msg.style.color = "#ff4d4d";
+        msg.innerHTML = "Please fill all fields";
+        return;
+    }
+
+    if(password !== confirm){
+        msg.style.color = "#ff4d4d";
+        msg.innerHTML = "Passwords do not match";
+        return;
+    }
+
+    if(password.length < 4){
+        msg.style.color = "#ff4d4d";
+        msg.innerHTML = "Password must be at least 4 characters";
+        return;
+    }
+
+    // success
+    msg.style.color = "#00ff99";
+    msg.innerHTML = "Account created successfully...";
+
+    // store (demo purpose)
+    localStorage.setItem("userName", name);
+    localStorage.setItem("userEmail", email);
+
+    setTimeout(() => {
+        window.location.href = "login.html";
+    }, 2000);
+
+});
+
+</script>
+
+</body>
+</html>
