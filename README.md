@@ -1,1 +1,1 @@
-# techno
+Technos Computer
